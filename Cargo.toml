@@ -1,0 +1,20 @@
+# Cargo.toml
+[package]
+name = "llm_gateway"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12", features = ["json", "stream"] } # <--- IMPORTANT: Upgraded to 0.12 and added "stream" feature
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] } # <--- Added "env-filter" for better logging control
+tokio-stream = "0.1.17"
+futures = "0.3.31"
+futures-core = "0.3.31"
+anyhow = "1.0" # <--- NEW: For robust error handling
+dotenv = "0.15" # <--- NEW: For loading .env file
+bytes = "1.0" # <--- NEW: Needed for reqwest's bytes_stream
